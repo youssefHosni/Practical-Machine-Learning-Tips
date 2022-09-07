@@ -7,6 +7,7 @@ instead of O(m × n2) + O(n3) for the full SVD approach, so it is dramatically f
 
 ```
 from sklearn.decomposition import PCA
+
 𝐏𝐂𝐀(𝐧_𝐜𝐨𝐦𝐩𝐨𝐧𝐞𝐧𝐭𝐬=𝟏𝟎𝟎, 𝐬𝐯𝐝_𝐬𝐨𝐥𝐯𝐞𝐫="𝐫𝐚𝐧𝐝𝐨𝐦𝐢𝐳𝐞𝐝")
 
 ```
