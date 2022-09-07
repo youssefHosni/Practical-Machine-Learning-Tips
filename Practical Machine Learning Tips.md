@@ -23,7 +23,11 @@ Good default values are clipnorm = 1.0 and clipvalue = 0.5.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Tip 3 ### 
+
 You should save every model you experiment with, so you can come back easily to any model you want. Make sure you save both the hyperparameters and the trained parameters, as well as the cross-validation scores and perhaps the actual predictions as well. This will allow you to easily compare scores across model types, and compare the types of errors they make. Also, this could be used as a backup if the new model fails for some reason. Likewise, you should keep a backup of the different versions of the datasets so that you can go back to it if the new version got corrupted for any reason.You can easily save Scikit-Learn models by using Python’s pickle module or using the joblib library, which is more efficient at serializing large NumPy arrays as shown in the code below. Also, you can save Keras's deep learning models in a similar way.
+
+![pika-2022-08-17T11_19_16 604Z](https://user-images.githubusercontent.com/72076328/188971012-e4cbd3d2-89cd-4a5d-9073-ba6f65a02ae9.png)
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Tip 6 ###
