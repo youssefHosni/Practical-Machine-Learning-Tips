@@ -7,6 +7,7 @@ For example, the code below trains a Random Forest Classifier on the iris datase
 
 ![pika-2022-08-15T11_06_41 062Z](https://user-images.githubusercontent.com/72076328/188969870-2e62cc31-309d-4810-8627-088f7cf28000.png)
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Tip 7 ###
 
