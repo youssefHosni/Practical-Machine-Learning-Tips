@@ -81,4 +81,11 @@ for X_batch in np.array_split(X_train, n_batches):
 X_reduced = inc_pca.transform(X_train)
 
 ```
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Tips # 9 ###
+
+If you would like to use a very slow dimension reduction method especially if your data is nonlinear such as Locally Linear Embedding (LLE) you can chain two dimension reduction algorithms to decrease the computational time of the LLE and still have almost the same result.
+
+You can first apply PCA to your data to quickly get rid of a large number of useless dimensions and then use LLE. This will yield a similar performance as just using LLE but in a fraction of its time.
 
