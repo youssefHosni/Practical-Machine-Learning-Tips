@@ -1,4 +1,4 @@
-### Tip 1 ###
+### ML Practical Tip # 1 ###
 
 One of the great qualities of random forests in sklearn is that it allows measuring the relative importance of each feature by looking at how much the tree nodes that use that feature reduce the impurity on a weighted average (across all trees in the forest). The weight of each node is the number of training samples associated with it. 
 
@@ -8,7 +8,7 @@ For example, the code below trains a Random Forest Classifier on the iris datase
 ![pika-2022-08-15T11_06_41 062Z](https://user-images.githubusercontent.com/72076328/188969870-2e62cc31-309d-4810-8627-088f7cf28000.png)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### Tip 2 ###
+### ML Practical Tip # 2 ###
 If you are training a deep neural network and the loss is unstable (getting large changes from update to update), the loss goes to Nan during training or the model is not learning from the data this is a sign of exploding gradients. You can make sure by checking the weights if they are very large go to NaN values during training this will sign that there is an exploding gradient.
 
 A simple but effective solution to this problem is 𝗴𝗿𝗮𝗱𝗶𝗲𝗻𝘁 𝗰𝗹𝗶𝗽𝗽𝗶𝗻𝗴, in which you clip the gradient if they pass a certain threshold.
@@ -22,7 +22,7 @@ Good default values are clipnorm = 1.0 and clipvalue = 0.5.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tip 3 ### 
+### ML Practical Tip # 3 ### 
 
 You should save every model you experiment with, so you can come back easily to any model you want. Make sure you save both the hyperparameters and the trained parameters, as well as the cross-validation scores and perhaps the actual predictions as well. This will allow you to easily compare scores across model types, and compare the types of errors they make. Also, this could be used as a backup if the new model fails for some reason. Likewise, you should keep a backup of the different versions of the datasets so that you can go back to it if the new version got corrupted for any reason.You can easily save Scikit-Learn models by using Python’s pickle module or using the joblib library, which is more efficient at serializing large NumPy arrays as shown in the code below. Also, you can save Keras's deep learning models in a similar way.
 
@@ -30,14 +30,14 @@ You should save every model you experiment with, so you can come back easily to 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Tip 4 ###
+### ML Practical Tip # 4 ###
 
 One of the practical tips that might be a little bit strange is to split the data and leave out the test even before exploration and cleaning. The reason for that is that our brains are amazing pattern detection system, which means that it is highly prone to overfitting.
 
 So if you look at the test set, you may stumble upon some seemingly interesting pattern in the test data that leads you to select a particular kind of Machine Learning model. When you estimate the generalization error using the test set, your estimate will be too optimistic and you will launch a system that will not perform as well as expected. This is called **𝐝𝐚𝐭𝐚 𝐬𝐧𝐨𝐨𝐩𝐢𝐧𝐠 𝐛𝐢𝐚𝐬**
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### Tip 5 ###
+### ML Practical Tip # 5 ###
 One of the main reasons bagging and pasting are famous, besides their good results, is that they can scale very well in an easy way. since the predictor can be trained in parallel as they are independent, you can train on multiple CPU cores or on multiple servers. The same can also be done in prediction. 
 
 Scikit learn offers a  simple API for bagging and pasting with the  BaggingClassifier class. The parameter n_jobs defines the number of cores that can be used in both training and prediction. The code below n_jobs is -1, meaning use all the available cores.
@@ -49,7 +49,7 @@ A big challenge with online learning* is that if bad data is fed to the system, 
 *Online learning: You train the system incrementally by feeding it data instances sequentially, either individually or in small groups called mini-batches. Each learning step is fast and cheap, so the system can learn about new data on the fly, as it arrives.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### ML Tips # 7 ###
+### ML Practical Tip # # 7 ###
 
 If you would like to increase the speed of PCA you can set the svd_solver hyperparameter to "randomized" in Scikit-Learn. This will make it use a stochastic algorithm called Randomized PCA that quickly finds an approximation of the first d principal components. Its computational complexity is O(m × d2) + O(d3),
 instead of O(m × n2) + O(n3) for the full SVD approach, so it is dramatically faster than full SVD when d is much smaller than n:
@@ -65,7 +65,7 @@ By default, svd_solver is actually set to "auto": Scikit-Learn automatically use
 or n, or else it uses the full SVD approach. If you want to force Scikit-Learn to use full SVD, you can set the svd_solver hyperparameter to "full".
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### ML Tips # 8 ###
+### ML Practical Tip # 8 ###
 If you would like to apply PCA to a large dataset you will probably face a memory error since the implementations of PCA requires the whole training set to fit in memory in order for the algorithm to run.
 
 Fortunately, 𝗜𝗻𝗰𝗿𝗲𝗺𝗲𝗻𝘁𝗮𝗹 𝗣𝗖𝗔 (𝗜𝗣𝗖𝗔) algorithms have been developed to solve this problem: you can split the training set into mini-batches and feed an IPCA algorithm one mini-batch at a time. This is useful for large training sets, and also to apply PCA online.
@@ -83,9 +83,22 @@ X_reduced = inc_pca.transform(X_train)
 ```
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### ML Tips # 9 ###
+### ML Practical Tip # 9 ###
 
 If you would like to use a very slow dimension reduction method especially if your data is nonlinear such as Locally Linear Embedding (LLE) you can chain two dimension reduction algorithms to decrease the computational time of the LLE and still have almost the same result.
 
 You can first apply PCA to your data to quickly get rid of a large number of useless dimensions and then use LLE. This will yield a similar performance as just using LLE but in a fraction of its time.
 
+-------------------------------------------------------------------------
+### ML Practical Tip # 10 ###
+
+When splitting the dataset into training/ validations and test datasets it is important to avoid sampling bias especially if your dataset is imbalanced or not large enough. One way to avoid this is using stratified sampling: the population is divided into homogeneous subgroups called strata, and the right number of instances is sampled from each stratum to guarantee that the test set is representative of the overall population.
+
+You can apply this through the 𝐬𝐭𝐫𝐚𝐭𝐢𝐟𝐲 parameter in the 𝐬𝐤𝐥𝐞𝐚𝐫𝐧.𝐦𝐨𝐝𝐞𝐥_𝐬𝐞𝐥𝐞𝐜𝐭𝐢𝐨𝐧.𝐭𝐫𝐚𝐢𝐧_𝐭𝐞𝐬𝐭_𝐬𝐩𝐥𝐢𝐭 method as the following:
+
+```
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+                                                    stratify=y, 
+                                                    test_size=0.25)
+```
