@@ -102,3 +102,18 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     stratify=y, 
                                                     test_size=0.25)
 ```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 11 ###
+
+If you would like to visualize data with high dimensions a good method is 𝘁-𝗗𝗶𝘀𝘁𝗿𝗶𝗯𝘂𝘁𝗲𝗱 𝗦𝘁𝗼𝗰𝗵𝗮𝘀𝘁𝗶𝗰 𝗡𝗲𝗶𝗴𝗵𝗯𝗼𝗿 𝗘𝗺𝗯𝗲𝗱𝗱𝗶𝗻𝗴 (𝘁-𝗗𝗦𝗡𝗘).
+
+𝘁-𝗗𝗦𝗡𝗘 reduces dimensionality while trying to keep similar instances close and dissimilar instances apart. 𝘁-𝗗𝗦𝗡𝗘 uses a heavy-tailed Student-t distribution to compute the similarity between two points in the low-dimensional space rather than a Gaussian distribution, which helps to address the crowding and optimization problems.
+
+For example, applying t-DSNE to the MNSIT dataset will results in 9 clusters as shown in the figure below:
+![1665215052130](https://user-images.githubusercontent.com/72076328/194696370-00435ffd-69d5-4989-8e34-9218b36c0e4e.jpg)
+
+
+
+
