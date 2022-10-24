@@ -114,6 +114,18 @@ If you would like to visualize data with high dimensions a good method is 𝘁-�
 For example, applying t-DSNE to the MNSIT dataset will results in 9 clusters as shown in the figure below:
 ![1665215052130](https://user-images.githubusercontent.com/72076328/194696370-00435ffd-69d5-4989-8e34-9218b36c0e4e.jpg)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+### ML Practical Tip # 12 ###
+
+Although creating a test set is theoretically quite simple: you can just pick some instances randomly of the dataset, and set them aside. There are some tips to make it more efficient one of them is Consistent Splitting.
+
+Consistent splitting of the same instants as train and test will prevent the model from seeing the whole data set which is something we want to avoid to make sure that the models are reliable.
+
+This can be done by using random.seed() when splitting or removing the data from the beginning and put it into a separate file.
+
+However, both of these solutions will break the next time you fetch an updated dataset. A common better, and more reliable solution is to use each instance’s identifier to decide whether or not it should go in the test set (assuming instances have a unique and immutable identifier).
+
+For example, you could compute a hash of each instance’s identifier and put that instance in the test set if the hash is lower or equal to 20% of the maximum hash value. This ensures that the test set will remain consistent across multiple runs, even if you refresh the dataset.
 
 
