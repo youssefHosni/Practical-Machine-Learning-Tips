@@ -128,4 +128,11 @@ However, both of these solutions will break the next time you fetch an updated d
 
 For example, you could compute a hash of each instance’s identifier and put that instance in the test set if the hash is lower or equal to 20% of the maximum hash value. This ensures that the test set will remain consistent across multiple runs, even if you refresh the dataset.
 
+If your data is imbalanced and you will oversample or undersample certain classes in your data to overcome this problem. Do this to the training data only after splitting.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 13 ###
+
+
+Do not oversample or undersample the test or validation dataset as they will make it nonrepresentative to the real world and will give unrealistic results.  
