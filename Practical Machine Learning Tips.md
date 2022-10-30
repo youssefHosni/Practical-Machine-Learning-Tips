@@ -136,3 +136,21 @@ If your data is imbalanced and you will oversample or undersample certain classe
 
 
 Do not oversample or undersample the test or validation dataset as they will make it nonrepresentative to the real world and will give unrealistic results.  
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 14 ###
+
+
+If you use SVM this tip can decrease time and computational complexity.
+
+Since 𝐋𝐢𝐧𝐞𝐚𝐫𝐒𝐕𝐂 class is based on the 𝐥𝐢𝐛𝐥𝐢𝐧𝐞𝐚𝐫 library, which implements an optimized algorithm for linear SVMs. It does not support the kernel trick, but it 𝐬𝐜𝐚𝐥𝐞𝐬 𝐚𝐥𝐦𝐨𝐬𝐭 𝐥𝐢𝐧𝐞𝐚𝐫𝐥𝐲 with the number of training instances and the number of features: its training time complexity is roughly O(m × n).
+
+The algorithm takes longer if you require very high precision. This is controlled by the tolerance hyperparameter ϵ (called 𝐭𝐨𝐥 in 𝐒𝐜𝐢𝐤𝐢𝐭-𝐋𝐞𝐚𝐫𝐧). In most classification tasks, the default tolerance is fine. This will be a perfect choice if you have a large dataset but are linearly separable.
+
+On the other hand, the 𝐒𝐕𝐂 class is based on the 𝐥𝐢𝐛𝐬𝐯𝐦 library, which implements an algorithm that supports the kernel trick. The training time complexity is usually between O(m2 × n) and O(m3 × n).
+Unfortunately, this means that it gets very slow when the number of training instances gets large (e.g., hundreds of thousands of instances).
+
+This algorithm is perfect for 𝐜𝐨𝐦𝐩𝐥𝐞𝐱 𝐛𝐮𝐭 𝐬𝐦𝐚𝐥𝐥 𝐨𝐫 𝐦𝐞𝐝𝐢𝐮𝐦 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐬𝐞𝐭𝐬. However, it scales well with the number of features, especially with sparse features (i.e., when each instance has few nonzero features). In this case, the algorithm scales roughly with the average number of nonzero features per instance.
+
+
