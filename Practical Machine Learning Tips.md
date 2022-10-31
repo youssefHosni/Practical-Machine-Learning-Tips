@@ -152,5 +152,20 @@ On the other hand, the 𝐒𝐕𝐂 class is based on the 𝐥𝐢𝐛𝐬𝐯�
 Unfortunately, this means that it gets very slow when the number of training instances gets large (e.g., hundreds of thousands of instances).
 
 This algorithm is perfect for 𝐜𝐨𝐦𝐩𝐥𝐞𝐱 𝐛𝐮𝐭 𝐬𝐦𝐚𝐥𝐥 𝐨𝐫 𝐦𝐞𝐝𝐢𝐮𝐦 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐬𝐞𝐭𝐬. However, it scales well with the number of features, especially with sparse features (i.e., when each instance has few nonzero features). In this case, the algorithm scales roughly with the average number of nonzero features per instance.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 15 ###
+
+If you would like to apply **K_Means algorithm** to large dataset that you can use **MiniBatchKmeans class**. Instead of using the full dataset at each iteration, the algorithm is capable of using mini-batches, moving the centroids just slightly at each iteration. This speeds up the algorithm typically by a factor of 3 or 4 and makes it possible to cluster huge datasets that do not fit in memory. 
+
+Scikit-Learn implements this algorithm in the MiniBatchKMeans class. You can just use this class like the KMeans class:
+
+```
+from sklearn.cluster import MiniBatchKMeans
+minibatch_kmeans = MiniBatchKMeans(n_clusters=5)
+minibatch_kmeans.fit(X)
+```
+If the dataset does not fit in memory, the simplest option is to use the **memmap class** or you can use the **partial_fit()** method, but this will require much more work, since you will need to perform multiple initializations and select the best one yourself.
+
 
 
