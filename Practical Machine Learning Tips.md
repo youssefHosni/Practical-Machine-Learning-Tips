@@ -168,4 +168,22 @@ minibatch_kmeans.fit(X)
 If the dataset does not fit in memory, the simplest option is to use the **memmap class** or you can use the **partial_fit()** method, but this will require much more work, since you will need to perform multiple initializations and select the best one yourself.
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 16 ###
+
+Using the 𝐞𝐥𝐛𝐨𝐰 𝐝𝐢𝐚𝐠𝐫𝐚𝐦 to find the best value of K for K-Means clustering can be inaccurate and lead to choosing a wrong k-value.
+
+A better and more accurate way is to use the 𝐬𝐢𝐥𝐡𝐨𝐮𝐞𝐭𝐭𝐞 𝐝𝐢𝐚𝐠𝐫𝐚𝐦.
+Consider the figure below:
+
+The 𝐯𝐞𝐫𝐭𝐢𝐜𝐚𝐥 𝐝𝐚𝐬𝐡𝐞𝐝 𝐥𝐢𝐧𝐞𝐬 represent the silhouette score for each number of clusters, the width of each bar represents the size of data for each cluster, and the length of each cluster represents its silhouette coefficient.
+
+When most of the instances in a cluster have a lower coefficient than this score (i.e., if many of the instances bars stopped short of the dashed line, ending to the left of it), then the cluster is rather bad since this means its instances are much too close to other clusters.
+
+We can see that when k=3 and when k=6, we get bad clusters. But when k=4 or k=5, the clusters look pretty good as most instances extend beyond the dashed line to the right and closer to 1.0.
+
+When k=4, the cluster at index 1 (the third from the top), is rather big, while when k=5, all clusters have similar sizes, so even though the overall silhouette score from k=4 is slightly greater than for k=5, it seems like a good idea to use k=5 to get clusters of similar sizes.
+
+![1667312052220](https://user-images.githubusercontent.com/72076328/199254875-d378cbaf-7ab6-4754-a008-e3f5db653519.jpg)
 
