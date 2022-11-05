@@ -152,6 +152,7 @@ On the other hand, the 𝐒𝐕𝐂 class is based on the 𝐥𝐢𝐛𝐬𝐯�
 Unfortunately, this means that it gets very slow when the number of training instances gets large (e.g., hundreds of thousands of instances).
 
 This algorithm is perfect for 𝐜𝐨𝐦𝐩𝐥𝐞𝐱 𝐛𝐮𝐭 𝐬𝐦𝐚𝐥𝐥 𝐨𝐫 𝐦𝐞𝐝𝐢𝐮𝐦 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐬𝐞𝐭𝐬. However, it scales well with the number of features, especially with sparse features (i.e., when each instance has few nonzero features). In this case, the algorithm scales roughly with the average number of nonzero features per instance.
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### ML Practical Tip # 15 ###
