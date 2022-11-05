@@ -134,6 +134,7 @@ If your data is imbalanced and you will oversample or undersample certain classe
 
 ### ML Practical Tip # 13 ###
 
+If your data is imbalanced and you will oversample or undersample certain classes in your data to overcome this problem. Do this to the training data only after splitting.
 
 Do not oversample or undersample the test or validation dataset as they will make it nonrepresentative to the real world and will give unrealistic results.  
 
