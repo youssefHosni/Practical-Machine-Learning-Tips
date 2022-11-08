@@ -189,3 +189,15 @@ When k=4, the cluster at index 1 (the third from the top), is rather big, while 
 
 ![1667312052220](https://user-images.githubusercontent.com/72076328/199254875-d378cbaf-7ab6-4754-a008-e3f5db653519.jpg)
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 17 ###
+Choosing the type of loss for a deep learning model can be confusing here is a short guide:
+
+We use the 𝐬𝐩𝐚𝐫𝐬𝐞_𝐜𝐚𝐭𝐞𝐠𝐨𝐫𝐢𝐜𝐚𝐥_𝐜𝐫𝐨𝐬𝐬𝐞𝐧𝐭𝐫𝐨𝐩𝐲 loss when we have sparse labels (when for each instance we get a class index for example if we have three classes then labels will be 0,1,2)
+
+We use 𝐜𝐚𝐭𝐞𝐠𝐨𝐫𝐢𝐜𝐚𝐥_𝐜𝐫𝐨𝐬𝐬𝐞𝐧𝐭𝐫𝐨𝐩𝐲 loss when we have one target probability per class instance for example [0,0,1] for class 3.
+
+Finally, we use the 𝐛𝐢𝐧𝐚𝐫𝐲_𝐜𝐫𝐨𝐬𝐬𝐞𝐧𝐭𝐫𝐨𝐩𝐲 loss for binary classification tasks.
+
