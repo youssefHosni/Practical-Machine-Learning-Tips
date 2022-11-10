@@ -201,3 +201,45 @@ We use 𝐜𝐚𝐭𝐞𝐠𝐨𝐫𝐢𝐜𝐚𝐥_𝐜𝐫𝐨𝐬𝐬𝐞𝐧
 
 Finally, we use the 𝐛𝐢𝐧𝐚𝐫𝐲_𝐜𝐫𝐨𝐬𝐬𝐞𝐧𝐭𝐫𝐨𝐩𝐲 loss for binary classification tasks.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 18 ###
+
+If you would like to plot your deep learning model there is an easy way to do this using 𝐩𝐥𝐨𝐭_𝐦𝐨𝐝𝐞𝐥 function from Keras utils. 
+
+Consider the model shown below:  
+![1_z5LWYS_mNAxUeGSv1k_TXA](https://user-images.githubusercontent.com/72076328/201094730-6436f026-afa3-4924-abba-a111663ba083.jpeg)
+
+
+we can define the model and plot it with this code 
+```
+from tensorflow import keras
+from tensorflow.keras.utils import plot_model
+
+
+input_A = keras.layers.Input(shape=[5], name="wide_input")
+input_B = keras.layers.Input(shape=[6], name="deep_input")
+hidden1 = keras.layers.Dense(30, activation="relu")(input_B)
+hidden2 = keras.layers.Dense(30, activation="relu")(hidden1)
+concat = keras.layers.concatenate([input_A, hidden2])
+output = keras.layers.Dense(1, name="main_output")(concat)
+aux_output = keras.layers.Dense(1, name="aux_output")(hidden2)
+model = keras.models.Model(inputs=[input_A, input_B],
+                           outputs=[output, aux_output])
+
+keras.utils.plot_model(model, "model.png", show_shapes=True)
+
+```
+Here is the output of this code:
+
+![download (4)](https://user-images.githubusercontent.com/72076328/201095601-f6eea602-7059-4e4c-a0d3-bbcda97e1b53.png)
+
+You can see that is similar as the orignal plot of the model
+
+
+It is mportant to note that if you will be using google colab you can use it this function directly, however if you will use it on your own machine you will have to download some packages as shown in the code below:
+```
+conda install graphviz
+conda install pydot
+conda install pydotplus
+```
