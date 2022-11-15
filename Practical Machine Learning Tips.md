@@ -243,3 +243,40 @@ conda install graphviz
 conda install pydot
 conda install pydotplus
 ```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 19 ###
+
+If you would like to experiment new reseach ideas with flexoblity in Keras a great way to do this is using the subclassing API. It allows you to include dynamic functions such as loops, varying shapes, conditional branching and other dynamic functions in a simple and flexible way.  
+
+Consider the code below we have two inputs and two outputs. We simply create the layers we need in the constructor and define the calcualtions after that in the call() method. 
+
+However this extra flexibility does come at a cost: your model's architecture is hidden within the **call() method**, so Keras cannot easily inspect it; it cannot save or clone it; and when a call the **summary() method**, you only get a list of layers, without any information on how they are connected to each other. 
+
+Moreover, Keras cannot check types and shapes ahead of time, and it is easier to make mistakes. So unless you really need
+that extra flexibility, you should probably stick to the Sequential API or the Functional API.
+
+```
+class WideAndDeepModel(keras.models.Model):
+    def __init__(self, units=30, activation="relu", **kwargs):
+        super().__init__(**kwargs)
+        self.hidden1 = keras.layers.Dense(units, activation=activation)
+        self.hidden2 = keras.layers.Dense(units, activation=activation)
+        self.output1 = keras.layers.Dense(1)
+        self.output2 = keras.layers.Dense(1)
+        
+    def call(self, inputs):
+        input_A, input_B = inputs
+        hidden1 = self.hidden1(input_B)
+        hidden2 = self.hidden2(hidden1)
+        concat = keras.layers.concatenate([input_A, hidden2])
+        output1 = self.main_output(concat)
+        output2 = self.aux_output(hidden2)
+        return output1, output2
+
+model = WideAndDeepModel(30, activation="relu")
+
+```
+
+
+
