@@ -277,6 +277,20 @@ class WideAndDeepModel(keras.models.Model):
 model = WideAndDeepModel(30, activation="relu")
 
 ```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 20 ###
+
+𝐇𝐨𝐰 𝐭𝐨 𝐨𝐩𝐭𝐢𝐦𝐢𝐳𝐞 𝐭𝐡𝐞 𝐧𝐞𝐮𝐫𝐚𝐥 𝐧𝐞𝐭𝐰𝐨𝐫𝐤 𝐥𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐫𝐚𝐭𝐞 𝐪𝐮𝐢𝐜𝐤𝐥𝐲?
+
+The 𝐥𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐫𝐚𝐭𝐞 is considered to be one of the most important hyperparameters you can optimize in a neural network model.
+
+One way to find a good learning rate is to train the model for a few hundred iterations, starting with a very low learning rate (e.g., 10^-5) and gradually increasing it up to a very large value (e.g., 10). This is done by multiplying the learning rate by a constant factor at each iteration (e.g., by exp(log(10⁶)/500) to go from 10^-5 to 10 in 500 iterations). 
+
+If you plot the loss as a function of the learning rate (using a LIP log scale for the learning rate), you should see it drop at first. But after a while, the learning rate will be too large, so the loss will shoot back up: the optimal learning rate will be a bit lower than the point at which the loss starts to climb (typically about 10 times lower than the turning point). You can then reinitialize the model and train it normally using this good learning rate.
+ 
+Finally, it is important to remember that the optimal learning rate depends on the other hyperparameters, especially the batch size, so if you modify any of the hyperparameters, remember to update the learning rate as well. 
+
 
 
 
