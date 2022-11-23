@@ -292,5 +292,27 @@ If you plot the loss as a function of the learning rate (using a LIP log scale f
 Finally, it is important to remember that the optimal learning rate depends on the other hyperparameters, especially the batch size, so if you modify any of the hyperparameters, remember to update the learning rate as well. 
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 21 ###
+
+The choice of activation function has a large impact on the capability and performance of the neural network, and different activation functions may be used in different parts of the model.
+
+Here is a quick guide on how to do it:
+
+A very good starting point is to start with 𝐑𝐞𝐥𝐮 as an activation function for the hidden layers as shown in the figure below.
+
+The activation functions of the output layer will depend mainly on the 𝐭𝐚𝐬𝐤:
+
+1. For 𝐫𝐞𝐠𝐫𝐞𝐬𝐬𝐢𝐨𝐧 𝐭𝐚𝐬𝐤𝐬, you can use the linear activation function as you would like to output from the fully connected layers without changes.
+
+2. If your problem is a 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐩𝐫𝐨𝐛𝐥𝐞𝐦, then there are three main types of classification problems, and each may use a different activation function:
+
+⏺ If there are two mutually exclusive classes (𝐛𝐢𝐧𝐚𝐫𝐲 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧), then your output layer will have one node, and a 𝐬𝐢𝐠𝐦𝐨𝐢𝐝 𝐚𝐜𝐭𝐢𝐯𝐚𝐭𝐢𝐨𝐧 function should be used.
+
+⏺ If there are more than two mutually exclusive classes (𝐦𝐮𝐥𝐭𝐢𝐜𝐥𝐚𝐬𝐬 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧), then your output layer will have one node per class, and a 𝐬𝐨𝐟𝐭𝐦𝐚𝐱 𝐚𝐜𝐭𝐢𝐯𝐚𝐭𝐢𝐨𝐧 should be used.
+
+⏺ If there are two or more mutually inclusive classes (𝐦𝐮𝐥𝐭𝐢𝐥𝐚𝐛𝐞𝐥 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧), then your output layer will have one node for each class, and a 𝐬𝐢𝐠𝐦𝐨𝐢𝐝 𝐚𝐜𝐭𝐢𝐯𝐚𝐭𝐢𝐨𝐧 function is used.
+
 
 
