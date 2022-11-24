@@ -314,5 +314,24 @@ The activation functions of the output layer will depend mainly on the 𝐭𝐚�
 
 ⏺ If there are two or more mutually inclusive classes (𝐦𝐮𝐥𝐭𝐢𝐥𝐚𝐛𝐞𝐥 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧), then your output layer will have one node for each class, and a 𝐬𝐢𝐠𝐦𝐨𝐢𝐝 𝐚𝐜𝐭𝐢𝐯𝐚𝐭𝐢𝐨𝐧 function is used.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 22 ###
+
+
+𝐖𝐡𝐚𝐭 𝐢𝐬 𝐭𝐡𝐞 𝐨𝐩𝐭𝐢𝐦𝐚𝐥 𝐛𝐚𝐭𝐜𝐡 𝐬𝐢𝐳𝐞 𝐭𝐨 𝐮𝐬𝐞 𝐰𝐡𝐞𝐧 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐚 𝐝𝐞𝐞𝐩 𝐧𝐞𝐮𝐫𝐚𝐥 𝐧𝐞𝐭𝐰𝐨𝐫𝐤?
+
+The batch size can have a significant impact on your model’s performance and training time. You can choose a small batch size such as 32 or 64, or you can use the maximum batch size that will fit in your memory how to decide which to choose, or are there any other options?
+
+The main benefit of using large batch sizes is that hardware accelerators such as GPUs can process them efficiently and the algorithm will see more instances per second which will increase its performance. Therefore, many researchers and practitioners recommend using the largest batch size that can fit in GPU RAM.
+
+However, in practice, it was found that 𝐥𝐚𝐫𝐠𝐞 𝐛𝐚𝐭𝐜𝐡 sizes often lead to 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐢𝐧𝐬𝐭𝐚𝐛𝐢𝐥𝐢𝐭𝐢𝐞𝐬, especially at the beginning of training, and the resulting model may not generalize as well as a model trained with small batch size.
+
+On the other hand, researchers found that using small batches (from 2 to 32) was preferable because small batches led to better models in less training time.
+
+Other researchers showed that it was possible to use very large batch sizes (up to 8,192) using various techniques such as warming up the learning rate (i.e., starting training with a small learning rate, then ramping it up). This will lead to a very short training time without any generalization gap.
+
+So, in summary, a good starting strategy is to try to use a large batch size based on your hardware and to use a learning rate warmup if training is unstable or the final performance is disappointing, then try using a small batch size instead.
+
 
 
