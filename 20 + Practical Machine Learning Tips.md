@@ -333,5 +333,23 @@ Other researchers showed that it was possible to use very large batch sizes (up 
 
 So, in summary, a good starting strategy is to try to use a large batch size based on your hardware and to use a learning rate warmup if training is unstable or the final performance is disappointing, then try using a small batch size instead.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 23 ###
+
+
+𝐇𝐨𝐰 𝐭𝐨 𝐬𝐞𝐭 𝐭𝐡𝐞 𝐧𝐮𝐦𝐛𝐞𝐫 𝐨𝐟 𝐧𝐞𝐮𝐫𝐨𝐧𝐬 𝐢𝐧 𝐞𝐚𝐜𝐡 𝐡𝐢𝐝𝐝𝐞𝐧 𝐥𝐚𝐲𝐞𝐫:
+
+The number of neurons in the 𝐢𝐧𝐩𝐮𝐭 and 𝐨𝐮𝐭𝐩𝐮𝐭 layers is determined by the type of input and output your task requires. For example, the MNIST task requires 28 x 28= 784 input neurons and 10 output neurons since it has ten classes. If the task is regression or binary classification, then the number of output neurons is just one.
+
+As for the 𝐡𝐢𝐝𝐝𝐞𝐧 𝐥𝐚𝐲𝐞𝐫𝐬, it used to be common to size them to form a pyramid, with fewer and fewer neurons at each layer-the rationale being that many low-level features can coalesce into far fewer high-level features. A typical neural network for MNIST might have 3 hidden layers, the first with 300 neurons, the second with 200, and the third with 100.
+
+However, this practice has been largely abandoned because it seems that using the 𝐬𝐚𝐦𝐞 𝐧𝐮𝐦𝐛𝐞𝐫 of neurons in all hidden layers performs just as well in most cases, or even better; plus, there is only one hyperparameter to tune instead of one per layer.
+
+That said, depending on the dataset, it can sometimes help to make the first hidden layer bigger than the others. Just like the number of layers, you can try increasing the number of neurons gradually until the network starts overfitting.
+
+𝐁𝐮𝐭 𝐢𝐧 𝐩𝐫𝐚𝐜𝐭𝐢𝐜𝐞, 𝐢𝐭’𝐬 𝐨𝐟𝐭𝐞𝐧 𝐬𝐢𝐦𝐩𝐥𝐞𝐫 𝐚𝐧𝐝 𝐦𝐨𝐫𝐞 𝐞𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐭 𝐭𝐨 𝐩𝐢𝐜𝐤 𝐚 𝐦𝐨𝐝𝐞𝐥 𝐰𝐢𝐭𝐡 𝐦𝐨𝐫𝐞 𝐥𝐚𝐲𝐞𝐫𝐬 𝐚𝐧𝐝 𝐧𝐞𝐮𝐫𝐨𝐧𝐬 𝐭𝐡𝐚𝐧 𝐲𝐨𝐮 𝐚𝐜𝐭𝐮𝐚𝐥𝐥𝐲 𝐧𝐞𝐞𝐝, 𝐭𝐡𝐞𝐧 𝐮𝐬𝐞 𝐞𝐚𝐫𝐥𝐲 𝐬𝐭𝐨𝐩𝐩𝐢𝐧𝐠 𝐚𝐧𝐝 𝐨𝐭𝐡𝐞𝐫 𝐫𝐞𝐠𝐮𝐥𝐚𝐫𝐢𝐳𝐚𝐭𝐢𝐨𝐧 𝐭𝐞𝐜𝐡𝐧𝐢𝐪𝐮𝐞𝐬 𝐭𝐨 𝐩𝐫𝐞𝐯𝐞𝐧𝐭 𝐢𝐭 𝐟𝐫𝐨𝐦 𝐨𝐯𝐞𝐫𝐟𝐢𝐭𝐭𝐢𝐧𝐠.
+![1_CvOQhsTrRmKgqyfjPcRQyw](https://user-images.githubusercontent.com/72076328/204094791-18dfbcb1-bed9-4abe-baa0-ab90d73641fd.jpeg)
+
 
 
