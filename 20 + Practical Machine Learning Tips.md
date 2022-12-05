@@ -351,5 +351,34 @@ That said, depending on the dataset, it can sometimes help to make the first hid
 𝐁𝐮𝐭 𝐢𝐧 𝐩𝐫𝐚𝐜𝐭𝐢𝐜𝐞, 𝐢𝐭’𝐬 𝐨𝐟𝐭𝐞𝐧 𝐬𝐢𝐦𝐩𝐥𝐞𝐫 𝐚𝐧𝐝 𝐦𝐨𝐫𝐞 𝐞𝐟𝐟𝐢𝐜𝐢𝐞𝐧𝐭 𝐭𝐨 𝐩𝐢𝐜𝐤 𝐚 𝐦𝐨𝐝𝐞𝐥 𝐰𝐢𝐭𝐡 𝐦𝐨𝐫𝐞 𝐥𝐚𝐲𝐞𝐫𝐬 𝐚𝐧𝐝 𝐧𝐞𝐮𝐫𝐨𝐧𝐬 𝐭𝐡𝐚𝐧 𝐲𝐨𝐮 𝐚𝐜𝐭𝐮𝐚𝐥𝐥𝐲 𝐧𝐞𝐞𝐝, 𝐭𝐡𝐞𝐧 𝐮𝐬𝐞 𝐞𝐚𝐫𝐥𝐲 𝐬𝐭𝐨𝐩𝐩𝐢𝐧𝐠 𝐚𝐧𝐝 𝐨𝐭𝐡𝐞𝐫 𝐫𝐞𝐠𝐮𝐥𝐚𝐫𝐢𝐳𝐚𝐭𝐢𝐨𝐧 𝐭𝐞𝐜𝐡𝐧𝐢𝐪𝐮𝐞𝐬 𝐭𝐨 𝐩𝐫𝐞𝐯𝐞𝐧𝐭 𝐢𝐭 𝐟𝐫𝐨𝐦 𝐨𝐯𝐞𝐫𝐟𝐢𝐭𝐭𝐢𝐧𝐠.
 ![1_CvOQhsTrRmKgqyfjPcRQyw](https://user-images.githubusercontent.com/72076328/204094791-18dfbcb1-bed9-4abe-baa0-ab90d73641fd.jpeg)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 24 ###
+
+If you would like to build a complex deep learning model a very good example is to use 𝐊𝐞𝐫𝐚𝐬 𝐅𝐮𝐧𝐜𝐭𝐢𝐨𝐧𝐚𝐥 𝐀𝐏𝐈.
+
+For example, if you would like to implement the wide & Deep network neural network shown in the first figure below.
+![ezgif com-gif-maker (10)](https://user-images.githubusercontent.com/72076328/205633236-0509bf07-b197-444c-956f-c9bed0850afc.jpg)
 
 
+
+In this model, part of the inputs or all of it is connected directly to the output layer as shown. This architecture allows the model to learn both deep information using the deep path and simple information directly from the input through the wide path.
+
+This can build using the code shown in the second figure. Let's explain the code in more detail:
+
+![pika-1670241231875-1x](https://user-images.githubusercontent.com/72076328/205633480-9db6aff0-cf80-4e6b-86e0-b58444c84169.png)
+
+◾ 𝐢𝐧𝐩𝐮𝐭_: In the first line, we created an Input object. This defines the input of the model, which includes its type and shape. The model can have multiple objects, as we will see in the coming models.
+
+◾𝐡𝐢𝐝𝐝𝐞𝐧1: The next step is to create the first hidden layer with 30 neurons and the ReLU activation function, and we pass to it the input we created in the line before. You can see that it is similar to calling a function that’s why it is called Functional API.
+
+◾𝐡𝐢𝐝𝐝𝐞𝐧 2: Next, we create another hidden layer with the same properties as the previously hidden layer, and we passed to it the output of the previously hidden layer.
+
+◾𝐜𝐨𝐧𝐜𝐚𝐭: This is a Concatenate layer and is used to concatenate the input and the output of the second hidden layer.
+
+◾𝐨𝐮𝐭𝐩𝐮𝐭: This is the output layer which consists of one single neuron and no activation function for the sake of simplicity, but you can add what you need for your model.
+
+◾𝐦𝐨𝐝𝐞𝐥: Finally, we create the Keras model and specify which input and outputs to use.
+
+
+![ezgif com-gif-maker (11)](https://user-images.githubusercontent.com/72076328/205633504-29cf2eb1-71d3-463f-9b5a-88286f0ab38e.jpg)
