@@ -382,3 +382,21 @@ This can build using the code shown in the second figure. Let's explain the code
 
 
 ![ezgif com-gif-maker (11)](https://user-images.githubusercontent.com/72076328/205633504-29cf2eb1-71d3-463f-9b5a-88286f0ab38e.jpg)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ML Practical Tip # 25 ###
+
+If you would like to use transform learning and you are not sure how many layers should you unfreeze and retrain. Here is a simple approach to follow:
+
+
+▶ Try freezing all the reused layers first, then train your model and see how it performs.
+
+▶ Then try unfreezing one or two of the top hidden layers to let backpropagation tweak them and see if performance improves. The more training data you have, the more layers you can unfreeze.
+
+𝐈𝐭 𝐢𝐬 𝐚𝐥𝐬𝐨 𝐮𝐬𝐞𝐟𝐮𝐥 𝐭𝐨 𝐫𝐞𝐝𝐮𝐜𝐞 𝐭𝐡𝐞 𝐥𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐫𝐚𝐭𝐞 𝐰𝐡𝐞𝐧 𝐲𝐨𝐮 𝐮𝐧𝐟𝐫𝐞𝐞𝐳𝐞 𝐫𝐞𝐮𝐬𝐞𝐝 𝐥𝐚𝐲𝐞𝐫𝐬: 𝐭𝐡𝐢𝐬 𝐰𝐢𝐥𝐥 𝐚𝐯𝐨𝐢𝐝 𝐰𝐫𝐞𝐜𝐤𝐢𝐧𝐠 𝐭𝐡𝐞𝐢𝐫 𝐟𝐢𝐧𝐞-𝐭𝐮𝐧𝐞𝐝 𝐰𝐞𝐢𝐠𝐡𝐭𝐬.
+
+▶ If you still cannot get good performance, and you have little training data, try dropping the top hidden layer(s) and freezing all the remaining hidden layers again.
+
+▶ You can iterate until you find the right number of layers to reuse. If you have plenty of training data, you may try replacing the top hidden layers instead of dropping them, and even adding more hidden layers.
+
