@@ -399,8 +399,8 @@ If you would like to use transform learning and you are not sure how many layers
 ▶ If you still cannot get good performance, and you have little training data, try dropping the top hidden layer(s) and freezing all the remaining hidden layers again.
 
 ▶ You can iterate until you find the right number of layers to reuse. If you have plenty of training data, you may try replacing the top hidden layers instead of dropping them, and even adding more hidden layers.
------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### ML Practical Tip # 26 ###
 
@@ -408,8 +408,8 @@ If you would like to use transform learning and you are not sure how many layers
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### ML Practical Tip # 27 ###
-
-
+If you are working on a machine learning project and you are using AUC as an evaluation metric and got it to be less than 0.5 so you probably got your classes inverted so before trying to improve your model make sure that your classes are not inverted.
+![1678075618700](https://user-images.githubusercontent.com/72076328/223859887-e3e64ff8-4bfb-4bb3-9fe4-b2aab364a574.jpg)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### ML Practical Tip # 28 ###
