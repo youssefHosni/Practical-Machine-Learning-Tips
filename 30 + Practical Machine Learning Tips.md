@@ -399,4 +399,33 @@ If you would like to use transform learning and you are not sure how many layers
 ▶ If you still cannot get good performance, and you have little training data, try dropping the top hidden layer(s) and freezing all the remaining hidden layers again.
 
 ▶ You can iterate until you find the right number of layers to reuse. If you have plenty of training data, you may try replacing the top hidden layers instead of dropping them, and even adding more hidden layers.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+### ML Practical Tip # 26 ###
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### ML Practical Tip # 27 ###
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+### ML Practical Tip # 28 ###
+
+The goal of data augmentation is to create examples that your learning algorithm can learn from. To be able to do this you need to think of how you can create realistic examples that the algorithm does poorly on, because if the algorithm already does well in those examples, then there's less for it to learn from. 
+
+But you want the examples to still be ones that a human or maybe some other baseline can do well on, because otherwise, one way to generate examples that the algorithm does poorly on, would be to just create examples that are so noisy that no one can hear what anyone said, but that's not helpful.
+
+You want examples that are hard enough to challenge the algorithm, but not so hard that they're impossible for any human or any algorithm to ever do well on. 
+
+Here's a checklist you might go through when you are generating new data to make sure that the new data will be helpful:
+
+* One, does it sound realistic? You want your data to actually sound like realistic data of the sort that you want your algorithm to perform on. 
+* Is the X-to-Y mapping clear? In other words, can humans still recognize what was said? This is to verify point two here. 
+* Is the algorithm currently doing poorly on this new data? That helps you verify point one. 
+
+If you can generate data that meets all of these criteria, then that would give you a higher chance that when you put this data into your training set and retrain the algorithm, then that will result in improving the model and make it reach the human level performance. 
+![Data-augmentation-using-semantic-preserving-transformation-for-SBIR](https://user-images.githubusercontent.com/72076328/223858583-c49e8e48-fce1-4493-be53-b7aa8614a47a.png)
 
